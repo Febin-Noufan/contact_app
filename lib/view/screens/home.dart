@@ -79,29 +79,23 @@ class _HomeScreenState extends State<HomeScreen> {
                       backgroundColor: Colors
                           .primaries[Random().nextInt(Colors.primaries.length)],
                       child: contact.image.isNotEmpty
-                          ? ClipOval(child: Image.file(File(contact.image)
-                          ,
-                          fit: BoxFit.cover,
-                          height: 40,
-                          width: 40,)
-
-                              //  Image.network(
-                              //   contact.image,
-                              //   fit: BoxFit.cover,
-                              //   width: 40, // Size of the avatar
-                              //   height: 40, // Size of the avatar
-                              // ),
-                              )
+                          ? ClipOval(
+                              child: Image.file(
+                              File(contact.image),
+                              fit: BoxFit.cover,
+                              height: 40,
+                              width: 40,
+                            ))
                           : Text(
                               contact.name.isNotEmpty
                                   ? contact.name[0].toUpperCase()
-                                  : '', // Display first letter of name if no image
+                                  : '',
                               style: const TextStyle(color: Colors.white),
                             ),
                     ),
                     title: Text(
                       contact.name,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                     ),
                     onTap: () async {
                       final result = await Navigator.push(
